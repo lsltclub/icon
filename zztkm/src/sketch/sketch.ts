@@ -62,17 +62,18 @@ const sketch = (p: p5) => {
 				p.pop();
 			}
 		}
-
-		p.keyPressed = () => {
-			if (p.key == 's') {
-				let timeStamp = p.year() + "-" + p.month() + "-" + p.day() + "-" + p.hour() + "-" + p.minute() + "-" + p.second() + "-" + p.nf(p.millis(), 3, 0);
-				p.save(timeStamp + 'png');
-			}
-		}
 	};
 
 	/** フレームごとの描画処理 */
 	p.draw = () => { };
+
+	/** スケッチデータを png で保存する */
+	p.keyPressed = () => {
+		if (p.key == 's') {
+			let timeStamp = p.year() + "-" + p.month() + "-" + p.day() + "-" + p.hour() + "-" + p.minute() + "-" + p.second() + "-" + p.nf(p.millis(), 3, 0);
+			p.save(timeStamp + 'png');
+		}
+	}
 
 	/** 画面上にたくさんの点を打って粒状感を背景に加える */
 	const drawDot = () => {
